@@ -46,12 +46,12 @@ public class Movie
         if(!rented)
         {
             rented=true;
-            Stat.sendMessage("RENTAL");
+            Stat.sendEvent(EventType.RENTAL, this);
         }
         if(rented)
         {
             rented = false;
-            Stat.sendMessage("RETURN");
+            Stat.sendEvent(EventType.RETURN, this);
         }   
     }        
 }
