@@ -8,12 +8,12 @@ public class Event
 {
     //General fields
     private EventType type;
-    private long creationTime;
+    private int creationTime;
     
     //Fields for movie rental/return event
     private Movie movie;
     private String uniqueId;
-    private long rentalPeriod;
+    private int rentalPeriod;
 
     /**
      * Construtor for accepting no parameters
@@ -21,7 +21,7 @@ public class Event
     public Event()
     {
         this.type = null;
-        this.creationTime = System.currentTimeMillis();
+        this.creationTime = Clock.getTick();
         
         this.movie = null;
         this.uniqueId = "";
@@ -37,7 +37,7 @@ public class Event
     public Event(EventType type, Movie movie)
     {
         this.type = type;
-        this.creationTime = System.currentTimeMillis();
+        this.creationTime = Clock.getTick();
         
         this.movie = movie;
         this.uniqueId = "";
@@ -52,7 +52,7 @@ public class Event
     public Event(EventType type)
     {
         this.type = type;
-        this.creationTime = System.currentTimeMillis();
+        this.creationTime = Clock.getTick()
         
         this.movie = null;
         this.uniqueId = "";
@@ -84,7 +84,7 @@ public class Event
      * 
      * @return the creation time of this event
      */
-    public long getCreationTime()
+    public int getCreationTime()
     {
         return this.creationTime;
     }
@@ -112,7 +112,7 @@ public class Event
      * 
      * @param num the length of time to set the rental period to
      */
-    public void setRentalPeriod(long num)
+    public void setRentalPeriod(int num)
     {
         this.rentalPeriod = num;
     }
@@ -122,7 +122,7 @@ public class Event
      * 
      * @return the rentalPeriod field
      */
-    public long getRentalPeriod()
+    public int getRentalPeriod()
     {
         return this.rentalPeriod;
     }
