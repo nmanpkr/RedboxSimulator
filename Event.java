@@ -52,7 +52,7 @@ public class Event
     public Event(EventType type)
     {
         this.type = type;
-        this.creationTime = Clock.getTick()
+        this.creationTime = Clock.getTick();
         
         this.movie = null;
         this.uniqueId = "";
