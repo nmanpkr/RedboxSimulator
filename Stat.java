@@ -52,9 +52,6 @@ public class Stat
                     
                     //Set the rental events creations time
                     returnEvent.setRentalPeriod(returnEvent.getCreationTime() - rentalEvent.getCreationTime());
-                    
-                    //Calculate time difference from creation of rental event and creation of corresponding return event
-                    long timeDifference = returnEvent.getCreationTime() - rentalEvent.getCreationTime();
                 }
             }
         }
@@ -116,9 +113,9 @@ public class Stat
      * 
      * @return an ArrayList<Long> of rental period
      */
-    private static ArrayList<Long> getRentalPeriods()
+    private static ArrayList<Integer> getRentalPeriods()
     {
-        ArrayList<Long> rentalPeriods = new ArrayList<>();
+        ArrayList<Integer> rentalPeriods = new ArrayList<>();
         for (Event e : events) {
             if (e.getType() == EventType.RETURN && e.getRentalPeriod() != 0) {
                 rentalPeriods.add(e.getRentalPeriod());
@@ -187,12 +184,12 @@ public class Stat
      * 
      * @return the average rental period
      */
-    public static long getAverageRentalPeriod()
+    public static int getAverageRentalPeriod()
     {
-        long sum = 0;
+        int sum = 0;
         if (!Stat.getRentalPeriods().isEmpty()) {
-            for (Long l : Stat.getRentalPeriods()) {
-                sum += l;
+            for (int i : Stat.getRentalPeriods()) {
+                sum += i;
             }
             return sum / Stat.getRentalPeriods().size();
         }
@@ -204,14 +201,14 @@ public class Stat
      * 
      * @return the shortest rental period
      */
-    public static long getShortestRentalPeriod()
+    public static int getShortestRentalPeriod()
     {
-        long shortest = 0;
+        int shortest = 0;
         if (!Stat.getRentalPeriods().isEmpty()) {
             shortest = Stat.getRentalPeriods().get(0);
-            for (Long l : Stat.getRentalPeriods()) {
-                if (l < shortest) {
-                    shortest = l;
+            for (int i : Stat.getRentalPeriods()) {
+                if (i < shortest) {
+                    shortest = i;
                 }
             }
         }
@@ -223,14 +220,14 @@ public class Stat
      * 
      * @return the longest rental period
      */
-    public static long getLongestRentalPeriod()
+    public static int getLongestRentalPeriod()
     {
-        long longest = 0;
+        int longest = 0;
         if (!Stat.getRentalPeriods().isEmpty()) {
             longest = Stat.getRentalPeriods().get(0);
-            for (Long l : Stat.getRentalPeriods()) {
-                if (l > longest) {
-                    longest = l;
+            for (int i : Stat.getRentalPeriods()) {
+                if (i > longest) {
+                    longest = i;
                 }
             }
         }
