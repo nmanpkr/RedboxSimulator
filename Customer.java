@@ -8,6 +8,7 @@ import java.util.Random;
  */
 public class Customer implements Actor
 {
+//declaration of variables
     private String name;
     private ArrayList<Movie> moviesRented;
     private ArrayList<Movie> reserved;
@@ -17,20 +18,21 @@ public class Customer implements Actor
      * Constructor for objects of class Customer
      */
     public Customer(String name, RedBox myBox){
+//instantiating variables
         this.name = name;
         this.myBox=myBox;
         moviesRented = new ArrayList<>();
         reserved = new ArrayList<>();
     }
     public String getName(){
-        return name;
+        return name; //used to return customer's name
     }
     public ArrayList<Movie> moviesRented(){
-        return moviesRented;
+        return moviesRented; //returns the movieRented list
     }
     public void act(){
-        int n = rand.nextInt(50) + 1; //Randomly generates a number to determine if we will rent/return
-        int movieListNum = rand.nextInt(10) + 1; //Randomly generates a number to pick from a list that needs to be created that holds all of the movies
+        int n = getRand(10); //Randomly generates a number to determine if we will rent/return
+        int movieListNum = getRand(50); //Randomly generates a number to pick from a list that needs to be created that holds all of the movies
         if(this.getReservations().size() > 0){
             reserved.get(0).rent();
             reserved.remove(0);
@@ -38,21 +40,21 @@ public class Customer implements Actor
         if(n > 0 && n < 6){
             if(myBox.get(movieListNum)!= rented){
                 myBox.get(movieListNum).rent();
-                myBbx.get(movieListNum).isRented();
-                moviesRented.add(movieList.get(movieListNum));
+                myBox.get(movieListNum).isRented();
+                moviesRented.add(myBox.get(movieListNum));
             }else{
                 reserved.add(myBox.get(movieListNum));
             }
         }
         else if(n > 5 && n < 11){
             if(moviesRented.size() > 0 ){
-                Movie.rent(mybox.get(movieListNum));
-                moviesRented.add(mybox.get(movieListNum));
+                Movie.rent(myBox.get(movieListNum));
+                moviesRented.add(myBox.get(movieListNum));
             }
         }
         //if it doesn't get 1-10 than it will do nothing and move on to the next tick
     }
     public ArrayList<Movie> getReservations(){
-        return reserved;
+        return reserved; //returns this customer's list of reservations
     }
 }
