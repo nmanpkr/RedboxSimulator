@@ -19,7 +19,7 @@ public class Clock
         tick = 0;
     }
     
-    public void clockTick()
+    public static void clockTick()
     {
         tick++;
     }

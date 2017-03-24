@@ -31,8 +31,8 @@ public class Customer implements Actor
         return moviesRented; //returns the movieRented list
     }
     public void act(){
-        int n = getRand(10); //Randomly generates a number to determine if we will rent/return
-        int movieListNum = getRand(50); //Randomly generates a number to pick from a list that needs to be created that holds all of the movies
+        int n = Randomizer.getRand(10); //Randomly generates a number to determine if we will rent/return
+        int movieListNum = Randomizer.getRand(50); //Randomly generates a number to pick from a list that needs to be created that holds all of the movies
         if(this.getReservations().size() > 0){
             reserved.get(0).rent();
             reserved.remove(0);

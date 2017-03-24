@@ -13,18 +13,13 @@ public class RedBox
     /**
      * Constructor for objects of class RedBox
      */
-    public RedBox() throws Exception
+    public RedBox() //throws Exception
     {
         myBox = new ArrayList<>();
         fillRedBox();
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
+     
     public void fillRedBox()
     {
      

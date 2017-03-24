@@ -5,7 +5,7 @@
  * @author (Matt Slossar) 
  * @version (3/24/17)
  */
-public class CustomerSource
+public class CustomerSource implements Actor
 {
     // instance variables - replace the example below with your own
     private Controller controller;
@@ -26,20 +26,20 @@ public class CustomerSource
      */
     public void act()
     {
-        if(tick < 10)
+        if(Clock.getTick() < 10)
         {
-            createCustomer(name);
+            createCustomer();
         }
-        else if(tick%5 == 0)
+        else if(Clock.getTick()%5 == 0)
         {
-            createCustomer(name);
+            createCustomer();
         }
     }
     
     /**
      * Creates the actual customer
      */
-    private void createCustomer(String name)
+    private void createCustomer()
     {
         controller.actorAdd(new Customer("Frank Reynolds", redBox));
     }

@@ -7,7 +7,7 @@ import java.util.Random;
  */
 public class Randomizer
 {
-    private Random rand;
+    private static Random rand;
     /**
      * Constructor for objects of class Randomizer.
      */
@@ -19,7 +19,7 @@ public class Randomizer
      /**
      * returns random value zero to n (exclusive).
      */
-    public int getRand(int n) {
+    public static int getRand(int n) {
         return rand.nextInt(n) ;
     }
 }
