@@ -16,7 +16,10 @@ public class Randomizer
         rand = new Random();
     }
     
-    public int getRand(int numberOfMovies) {
-        return rand.nextInt(numberOfMovies) + 1;
+     /**
+     * returns random value zero to n (exclusive).
+     */
+    public int getRand(int n) {
+        return rand.nextInt(n) ;
     }
 }
