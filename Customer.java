@@ -6,17 +6,19 @@ import java.util.Random;
  * @author Ryan Gamble and Rich Draper
  * @version 3/3/2017
  */
-public class Customer
+public class Customer implements Actor
 {
     private String name;
     private ArrayList<Movie> moviesRented;
     private ArrayList<Movie> reserved;
+    private RedBox myBox;
     private Random rand = new Random(); 
     /**
      * Constructor for objects of class Customer
      */
-    public Customer(String name){
+    public Customer(String name, RedBox myBox){
         this.name = name;
+        this.myBox=myBox;
         moviesRented = new ArrayList<>();
         reserved = new ArrayList<>();
     }
@@ -34,12 +36,12 @@ public class Customer
             reserved.remove(0);
         }
         if(n > 0 && n < 6){
-            if(mybox.get(movieListNum)!= rented){
-                mybox.get(movieListNum).rent();
-                mybbx.get(movieListNum).isRented();
+            if(myBox.get(movieListNum)!= rented){
+                myBox.get(movieListNum).rent();
+                myBbx.get(movieListNum).isRented();
                 moviesRented.add(movieList.get(movieListNum));
             }else{
-                reserved.add(mybox.get(movieListNum));
+                reserved.add(myBox.get(movieListNum));
             }
         }
         else if(n > 5 && n < 11){
