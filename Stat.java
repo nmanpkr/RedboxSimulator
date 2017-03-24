@@ -51,11 +51,11 @@ public class Stat
                     rentalEvent.setUniqueId(uniqueId);
                     returnEvent.setUniqueId(uniqueId);
                     
-                    //Set the rental events creations time
+                    //Set the return events rental period to the difference between the rental and return event
                     returnEvent.setRentalPeriod(returnEvent.getCreationTime() - rentalEvent.getCreationTime());
                     
                     //Adds the cost of the rental to the revenue
-                    revenue = revenue + returnEvent.getCost();
+                    revenue += returnEvent.getCost();
                 }
             }
         }
