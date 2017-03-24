@@ -12,6 +12,7 @@ import java.util.Collections;
 public class Stat
 {
     private static ArrayList<Event> events = new ArrayList<>();
+    private static double revenue;
 
     /**
      * Method for sending an event for the following event types
@@ -52,6 +53,9 @@ public class Stat
                     
                     //Set the rental events creations time
                     returnEvent.setRentalPeriod(returnEvent.getCreationTime() - rentalEvent.getCreationTime());
+                    
+                    //Adds the cost of the rental to the revenue
+                    revenue = revenue + returnEvent.getCost();
                 }
             }
         }
@@ -232,5 +236,15 @@ public class Stat
             }
         }
         return longest;
+    }
+    
+    /**
+     * Method to return the revenue
+     * 
+     * @return the revenue field
+     */
+    public static double getRevenue()
+    {
+        return revenue;
     }
 }
