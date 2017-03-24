@@ -16,8 +16,8 @@ public class Controller
     public Controller()
     {
         actors = new ArrayList<Actor>();
-        CustomerSource source = new CustomerSource(this);
-        RedBox myBox = new RedBox();
+        RedBox mybox = new RedBox();
+        CustomerSource source = new CustomerSource(this, mybox);
         stat = new Stat();
         
         actors.add(source);
