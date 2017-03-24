@@ -7,7 +7,7 @@ import java.util.Collections;
  * Statistics class for gathering events and calculating statistics
  * 
  * @author Patrick Richeal, Emily Provine, Alex Christofides
- * @version 3/3/2017
+ * @version 3/24/2017
  */
 public class Stat
 {
