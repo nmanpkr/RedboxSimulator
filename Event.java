@@ -14,6 +14,7 @@ public class Event
     private Movie movie;
     private String uniqueId;
     private int rentalPeriod;
+    private double cost;
 
     /**
      * Construtor for accepting no parameters
@@ -26,6 +27,7 @@ public class Event
         this.movie = null;
         this.uniqueId = "";
         this.rentalPeriod = 0;
+        this.cost = 0;
     }
 
     /**Event
@@ -42,6 +44,7 @@ public class Event
         this.movie = movie;
         this.uniqueId = "";
         this.rentalPeriod = 0;
+        this.cost = 0;
     }
     
     /**
@@ -109,12 +112,15 @@ public class Event
     
     /**
      * Set this event's rental period
+     * With the rental period, find the cost for the movie
      * 
      * @param num the length of time to set the rental period to
      */
     public void setRentalPeriod(int num)
     {
         this.rentalPeriod = num;
+        //Round up to the next day, then multiply for $1.50 per day
+        cost = Math.ceil(rentalPeriod) * 1.5;
     }
     
     /**
@@ -125,6 +131,16 @@ public class Event
     public int getRentalPeriod()
     {
         return this.rentalPeriod;
+    }
+    
+    /**
+     * Get the cost of this rental
+     * 
+     * @return the cost field
+     */
+    public double getCost()
+    {
+        return this.cost;
     }
 }
 
