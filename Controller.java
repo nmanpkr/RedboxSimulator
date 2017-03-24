@@ -18,13 +18,14 @@ public class Controller
         actors = new ArrayList<Actor>();
         RedBox mybox = new RedBox();
         CustomerSource source = new CustomerSource(this, mybox);
+        Randomizer randomizer = new Randomizer();
         stat = new Stat();
         
         actors.add(source);
 
     }
     /**
-     * Takes one step/tick of the simulation
+     *  Starts the simulation
      */
     public void run()
     {
