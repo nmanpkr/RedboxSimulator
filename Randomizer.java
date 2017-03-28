@@ -7,19 +7,18 @@ import java.util.Random;
  */
 public class Randomizer
 {
-    private static Random rand;
+    private static Random rand = new Random();
     /**
      * Constructor for objects of class Randomizer.
      */
     public Randomizer()
     {
-        rand = new Random();
     }
-    
-     /**
+
+    /**
      * returns random value zero to n (exclusive).
      */
     public static int getRand(int n) {
-        return rand.nextInt(n) ;
+        return rand.nextInt(n);
     }
 }

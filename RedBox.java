@@ -19,15 +19,14 @@ public class RedBox
         fillRedBox();
     }
 
-     
     public void fillRedBox()
     {
-     
+
         try{
             File file = new File("movies.txt");
             BufferedReader br = new BufferedReader(new FileReader("movies.txt"));
             String line = br.readLine();
-            
+
             while(line!=null){
                 myBox.add(new Movie(line));
                 line = br.readLine();
@@ -35,11 +34,16 @@ public class RedBox
             br.close();
         }
         catch(Exception e)
-       {}
-        
+        {}
+
         for(int i=0; i<myBox.size(); i++)
         {
             System.out.println(myBox.get(i));
         }
+    }
+    
+    public ArrayList<Movie> getRedBox()
+    {
+        return myBox;
     }
 }

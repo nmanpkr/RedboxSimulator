@@ -26,21 +26,25 @@ public class CustomerSource implements Actor
      */
     public void act()
     {
-        if(Clock.getTick() < 10)
-        {
-            createCustomer();
-        }
-        else if(Clock.getTick()%5 == 0)
+        if(Clock.getTick()%5 == 0 && Clock.getTick()> 10)
         {
             createCustomer();
         }
     }
-    
+
     /**
      * Creates the actual customer
      */
     private void createCustomer()
     {
         controller.actorAdd(new Customer("Frank Reynolds", redBox));
+    }
+    
+    public void createInitial()
+    {
+        for(int i = 0; i < 11; i++)
+        {
+            createCustomer();
+        }
     }
 }
