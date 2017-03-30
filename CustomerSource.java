@@ -1,4 +1,3 @@
-
 /**
  * Write a description of class CustomerSource here.
  * 
@@ -10,6 +9,7 @@ public class CustomerSource implements Actor
     // instance variables - replace the example below with your own
     private Controller controller;
     private RedBox redBox;
+    private NameGenerator nameGen;
 
     /**
      * Constructor for objects of class CustomerSource
@@ -18,6 +18,7 @@ public class CustomerSource implements Actor
     {
         this.controller = controller;
         this.redBox = redBox;
+        nameGen = new NameGenerator();
     }
 
     /**
@@ -37,7 +38,7 @@ public class CustomerSource implements Actor
      */
     private void createCustomer()
     {
-        controller.actorAdd(new Customer("Frank Reynolds", redBox));
+        controller.actorAdd(new Customer(nameGen.generateName(), redBox));
     }
     
     public void createInitial()
