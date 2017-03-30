@@ -9,7 +9,7 @@ public class Controller
 {
     private ArrayList<Actor> actors;
     private Stat stat;
-    private final int MAX_TICKS = 1000;
+    private final int MAX_TICKS = 1001;
     /**
      * Enstantiates all of the objects used in the project
      */
@@ -30,11 +30,15 @@ public class Controller
     public void run()
     {
         for(int t=0; t< MAX_TICKS; t++) {
-            for(Actor actor : actors){
-                actor.act();
+            for (int i = 0; i < actors.size(); i++) {
+                actors.get(i).act();
             }
+            
+            if (t % 10 == 0) {
+                Stat.printLog();
+            }
+            
             Clock.clockTick();
-            //update new actors
         }
     }
     

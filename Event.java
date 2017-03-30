@@ -15,6 +15,9 @@ public class Event
     private String uniqueId;
     private int rentalPeriod;
     private double cost;
+    
+    //Fields for customer create events
+    private Customer customer;
 
     /**
      * Construtor for accepting no parameters
@@ -28,6 +31,8 @@ public class Event
         this.uniqueId = "";
         this.rentalPeriod = 0;
         this.cost = 0;
+        
+        this.customer = null;
     }
 
     /**Event
@@ -36,7 +41,7 @@ public class Event
      * @param type the type of event
      * @param movie the movie that is being rented or returned
      */
-    public Event(EventType type, Movie movie)
+    public Event(EventType type, Movie movie, Customer customer)
     {
         this.type = type;
         this.creationTime = Clock.getTick();
@@ -45,6 +50,8 @@ public class Event
         this.uniqueId = "";
         this.rentalPeriod = 0;
         this.cost = 0;
+        
+        this.customer = customer;
     }
     
     /**
@@ -52,7 +59,7 @@ public class Event
      * 
      * @param type the type of event
      */
-    public Event(EventType type)
+    public Event(EventType type, Customer customer)
     {
         this.type = type;
         this.creationTime = Clock.getTick();
@@ -60,6 +67,8 @@ public class Event
         this.movie = null;
         this.uniqueId = "";
         this.rentalPeriod = 0;
+        
+        this.customer = customer;
     }
     
     /**
@@ -80,6 +89,16 @@ public class Event
     public Movie getMovie()
     {
         return this.movie;
+    }
+    
+    /**
+     * Get the customer that is stored in this event
+     * 
+     * @return the customer that is stored in this event
+     */
+    public Customer getCustomer()
+    {
+        return this.customer;
     }
     
     /**

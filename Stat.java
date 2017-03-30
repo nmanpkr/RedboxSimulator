@@ -22,19 +22,19 @@ public class Stat
      * @param type the type of the event being sent
      * @param movie the movie that is being rented or returned
      */
-    public static void sendEvent(EventType type, Movie movie)
+    public static void sendEvent(EventType type, Movie movie, Customer customer)
     {
         if (type == EventType.RENTAL) {
             //Check to make sure movie isn't currently rented
             //If it is not, add it to the events list
             if (!Stat.isMovieCurrentlyRented(movie)) {
-                events.add(new Event(EventType.RENTAL, movie));
+                events.add(new Event(EventType.RENTAL, movie, customer));
             }
         } else if (type == EventType.RETURN) {
             //Check to make sure movie is actually rented
             //If it is, add it to the events list
             if (Stat.isMovieCurrentlyRented(movie)) {
-                events.add(new Event(EventType.RETURN, movie));
+                events.add(new Event(EventType.RETURN, movie, customer));
                 
                 //Get the return event
                 Event returnEvent = events.get(events.size() - 1);
@@ -67,11 +67,25 @@ public class Stat
      *      
      * @param type the type of the event being sent
      */
-    public static void sendEvent(EventType type)
+    public static void sendEvent(EventType type, Customer customer)
     {
         if (type == EventType.CUSTOMER_CREATE) {
-            events.add(new Event(EventType.CUSTOMER_CREATE));
+            events.add(new Event(EventType.CUSTOMER_CREATE, customer));
         }
+    }
+    
+    public static void printLog()
+    {
+        System.out.println();
+        System.out.println("Clock tick: " + Clock.getTick());
+        System.out.println("=============================================================");
+        System.out.println("Total rentals to date: " + Stat.getTotalRentalsToDate());
+        System.out.println("Total rentals currently out: " + Stat.getTotalRentalsCurrentlyOut());
+        System.out.println("Total individual customers: " + Stat.getTotalIndividualCustomers());
+        System.out.println("Average rental period: " + Stat.getAverageRentalPeriod() + " ticks");
+        System.out.println("Shortest rental period: " + Stat.getShortestRentalPeriod() + " ticks");
+        System.out.println("Longest rental period: " + Stat.getLongestRentalPeriod() + " ticks");
+        System.out.println("Total revenue: $" + Stat.getRevenue());
     }
     
     /**

@@ -38,7 +38,9 @@ public class CustomerSource implements Actor
      */
     private void createCustomer()
     {
-        controller.actorAdd(new Customer(nameGen.generateName(), redBox));
+        Customer newCustomer = new Customer(nameGen.generateName(), redBox);
+        controller.actorAdd(newCustomer);
+        Stat.sendEvent(EventType.CUSTOMER_CREATE, newCustomer);
     }
     
     public void createInitial()

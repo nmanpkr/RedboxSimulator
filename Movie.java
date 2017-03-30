@@ -38,7 +38,7 @@ public class Movie
      * Changes the movie from not rented to rented
      * and vice versa
      */
-    public void rent()
+    public void rent(Customer customer)
     {
         // Will have a line to send a notification to Statistics
         // Need if statement to determine if renting or returning to change dayRented and dayReturned
@@ -46,12 +46,12 @@ public class Movie
         if(!rented)
         {
             rented=true;
-            Stat.sendEvent(EventType.RENTAL, this);
+            Stat.sendEvent(EventType.RENTAL, this, customer);
         }
-        if(rented)
+        else if(rented)
         {
             rented = false;
-            Stat.sendEvent(EventType.RETURN, this);
+            Stat.sendEvent(EventType.RETURN, this, customer);
         }   
     }        
 }

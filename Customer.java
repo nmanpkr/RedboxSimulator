@@ -37,13 +37,13 @@ public class Customer implements Actor
         int n = Randomizer.getRand(10); //Randomly generates a number to determine if we will rent/return
         int movieListNum = Randomizer.getRand(50); //Randomly generates a number to pick from a list that needs to be created that holds all of the movies
         if(this.getReservations().size() > 0){
-            reserved.get(0).rent();
+            reserved.get(0).rent(this);
             reserved.remove(0);
         }
         
         if(n > 0 && n < 6){
             if(myBox.getRedBox().get(movieListNum).isRented()!= true){
-                myBox.getRedBox().get(movieListNum).rent();
+                myBox.getRedBox().get(movieListNum).rent(this);
                 myBox.getRedBox().get(movieListNum).isRented();
                 moviesRented.add(myBox.getRedBox().get(movieListNum));
             }else{
@@ -52,7 +52,7 @@ public class Customer implements Actor
         }
         else if(n > 5 && n < 11){
             if(moviesRented.size() > 0 ){
-                myBox.getRedBox().get(movieListNum).rent();
+                myBox.getRedBox().get(movieListNum).rent(this);
                 moviesRented.add(myBox.getRedBox().get(movieListNum));
             }
         }
