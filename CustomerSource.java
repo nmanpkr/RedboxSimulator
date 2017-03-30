@@ -27,7 +27,7 @@ public class CustomerSource implements Actor
      */
     public void act()
     {
-        if(Clock.getTick()%5 == 0 && Clock.getTick()> 10)
+        if(Clock.getTick()%5 == 0 || Clock.getTick()< 10)
         {
             createCustomer();
         }
@@ -41,13 +41,5 @@ public class CustomerSource implements Actor
         Customer newCustomer = new Customer(nameGen.generateName(), redBox);
         controller.actorAdd(newCustomer);
         Stat.sendEvent(EventType.CUSTOMER_CREATE, newCustomer);
-    }
-    
-    public void createInitial()
-    {
-        for(int i = 0; i < 11; i++)
-        {
-            createCustomer();
-        }
     }
 }
